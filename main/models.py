@@ -11,6 +11,7 @@ class Embti(models.Model):
 class Question(models.Model):
     number = models.IntegerField(unique=True)
     content = models.CharField(max_length=100)
+    point = models.IntegerField(unique=False)
     
     def __str__(self):
         return f'{self.number}. {self.content}'
