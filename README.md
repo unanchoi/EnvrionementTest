@@ -9,7 +9,7 @@ the test for environmental proffessional for Likelion hackerton 9th A-heung Olym
 - 김하은
 - 박은지
 - 정우진
-- 
+- 최윤한
 
 ## Branch structure
 
