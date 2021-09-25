@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    @font-face {
+        src: url("font/GMedium.ttf");
+        font-family: "GM";
+    }
+
+    @font-face {
+        src: url("font/GBold.ttf");
+        font-family: "GB";
+    }
+
+    @font-face {
+        src: url("font/SCD5.otf");
+        font-family: "SCD5";
+    }
+
+    @font-face {
+        src: url("font/DXH.ttf");
+        font-family: "SKY";
+    }
+
+    @font-face {
+        src: url("font/INK.ttf");
+        font-family: "INK";
+    }
+
+    body {
+        color: #67917d;
+        padding-top: 50%;
+    }
+
+    .big_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .small_box {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 1000px;
+    }
+
+    .box {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 15px;
+        margin-bottom: 50px;
+        font-family: "GB";
+    }
+
+    .box>:nth-child(1) {
+        font-size: 50px;
+
+    }
+
+    .box>:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .content {
+        margin-bottom: 50px;
+        text-align: center;
+        font-family: Gmarket Sans TTF;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    .question {
+        font-family: Gmarket Sans TTF;
+        font-style: normal;
+        font-weight: bold;
+        background-color: #ededdd;
+        height: 70px;
+        margin-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 15px 15px 15px -15px gray
+    }
+
+    .question:hover{
+        background-color: #4E6057;
+        color : #ffffff;
+    }
+
+    .question:visited{
+        background-color: #4E6057;
+        color : #ffffff;
+
+    }
+
+    .next_question {
+        font-family: Gmarket Sans TTF;
+        font-style: normal;
+        font-weight: bold;
+        margin-top: -500px;
+        background-color: #ededed;
+        border: none;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        box-shadow: 15px 15px 15px -15px gray
+    }
+
+    .next_question:hover{
+        background-color: rgb(54, 172, 132);
+    }
+</style>
+
+<body>
+    <form action="{% url 'result' %}" method="post" class="question_form">
+        {% csrf_token %} {% for question in questions %}
+        <div class="big_box">
+            <div class="small_box">
+                <div class="box">
+                    <div>Q.</div>
+                    <div>
+                        <div></div>
+                        <div>{{question.number}}/10</div>
+                    </div>
+                </div>
+                <div class="content">{{question.content}}</div>
+                {% for choice in question.choice_set.all %}
+                <div class="question">
+                    <input type="radio" name="question-{{ question.number }}" id="choice-{{ choice.pk }}"
+                        value="{{ choice.point }}" onclick="scrollWin()" />
+                    <label for="choice-{{ choice.pk }}">{{choice.content}}</label>
+                </div>
+                {% endfor %}
+            </div>{% endfor %}
+            <input type="submit" value="결과 보기" class="next_question" />
+    </form>
+    </div>
+    <script>
+
+        function scrollWin() {
+
+            window.scrollBy(0, 1000);
+
+        }
+
+    </script>
+</body>
+
+</html>
