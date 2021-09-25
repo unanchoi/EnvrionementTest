@@ -6,21 +6,19 @@ the test for environmental proffessional for Likelion hackerton 9th A-heung Olym
 ## 👨‍👨‍👦‍👦Contributor
 
 - Likelion 9th
-- 김하은
-- 박은지
-- 정우진
-- 최윤한
+- 김하은(PM)
+- 박은지(Back-end)
+- 정우진(Front-end)
+- 최윤한(Front-end)
 
 ## Branch structure
 
 ### Main branch
 
-- Master branch : It is Manage only the state that can be distributed
+- Main branch : It is Manage only the state that can be distributed
 - Develop branch : It is Used to merge branches for feature development
 
 ### Secondary branch
-
-- Feature branch : Branch to develop the function ex)feature/profile
 - Fix branch : Branch to fix the function ex)fix/profile
 
 ## Guide
@@ -43,7 +41,6 @@ $ ./manage.py runserver
 
 ```
 git commit -m "text"
-
 ```
 
 ## Merge Rule
